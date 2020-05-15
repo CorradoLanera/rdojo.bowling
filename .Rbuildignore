@@ -1,0 +1,6 @@
+^renv$
+^renv\.lock$
+^rdojo\.bowling\.Rproj$
+^\.Rproj\.user$
+^README\.Rmd$
+^DEVELOP-SETUP\.R$
