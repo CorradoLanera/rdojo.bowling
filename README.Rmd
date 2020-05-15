@@ -21,19 +21,22 @@ knitr::opts_chunk$set(
 [![CRAN status](https://www.r-pkg.org/badges/version/rdojo.bowling)](https://CRAN.R-project.org/package=rdojo.bowling)
 <!-- badges: end -->
 
-The goal of rdojo.bowling is to ...
+The goal of rdojo.bowling is to implements and documents the bowling
+kata for the TDD dojo in R step-by-step.
 
 ## Installation
 
-You can install the released version of rdojo.bowling from [CRAN](https://CRAN.R-project.org) with:
+You can install the development version of `{rdojo.bowling}` from [GitHub](https://github.com) with:
 
 ``` r
-install.packages("rdojo.bowling")
+# install.packages("remotes")
+remotes::install_github("CorradoLanera/rdojo.bowling")
 ```
 
 
 ## Source
-https://codingdojo.org/kata/Bowling/
+The directives of the kata reported here below are taken (with very
+few modification) from https://codingdojo.org/kata/Bowling/
 
 
 ## Bowling
