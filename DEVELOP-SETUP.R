@@ -37,6 +37,7 @@ usethis::use_tidy_style()
 usethis::use_news_md()
 spelling::spell_check_package()
 spelling::update_wordlist()
+lintr::lint_package()
 
 usethis::use_version()
 
