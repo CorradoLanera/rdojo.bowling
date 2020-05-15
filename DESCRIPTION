@@ -1,5 +1,5 @@
 Package: rdojo.bowling
-Title: What the Package Does (One Line, Title Case)
+Title: Bowling kata for R-TDD Dojo
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Corrado",
@@ -7,9 +7,12 @@ Authors@R:
            role = c("aut", "cre"),
            email = "corrado.lanera@gmail.com",
            comment = c(ORCID = "0000-0002-0520-7428"))
-Description: What the package does (one paragraph).
+Description: {rdojo.bowling} implements and documents the bowlking kata
+    for the TDD dojo in R step-by-step. 
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
+URL: https://github.com/CorradoLanera/rdojo.bowling
+BugReports: https://github.com/CorradoLanera/rdojo.bowling/issues
