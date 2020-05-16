@@ -1,3 +1,5 @@
+# rdojo.bowling 0.2.0
+
 * `turn()` print its output showing the overall and rolls scores, and
   the turns's type (#2).
 * `turn()` stores the correct type of turns, ie standard, spare, or
