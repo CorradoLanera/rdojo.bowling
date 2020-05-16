@@ -79,6 +79,18 @@
       "Repository": "CRAN",
       "Hash": "50c838a310445e954bc13f26f26a6ecf"
     },
+    "autotestthat": {
+      "Package": "autotestthat",
+      "Version": "0.1.1",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "CorradoLanera",
+      "RemoteRepo": "autotestthat",
+      "RemoteRef": "master",
+      "RemoteSha": "c54fe3096f76d455698eff4ea3e8cb730d55c6b9",
+      "Hash": "f1b8478f830c3b4bbb25cd4609d1630d"
+    },
     "backports": {
       "Package": "backports",
       "Version": "1.1.7",
