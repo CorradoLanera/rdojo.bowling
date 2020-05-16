@@ -1,13 +1,20 @@
 #' Turn
 #'
 #' @param x (int) score for the first roll in the turn
-#' @param y (int) score for the second roll in the turn
+#' @param y (int, default 0) score for the second roll in the turn
 #'
-#' @return an object of class [turn]
+#' @return an object of class [turn] reporting:
+#'   - the sum of the rolls
+#'   - the original rolls
+#'   - the type of turn (standard, spare, or strike)
+#'
 #' @export
 #'
 #' @examples
-#' turn(1, 1)
+#' turn(1, 1) # 2, standard
+#' turn(1)    # 1, standard
+#' turn(5, 5) # 10, spare
+#' turn(10)   # 10, strike
 turn <- function(x, y = 0) {
   assertive::assert_is_a_number(x)
   assertive::assert_all_are_whole_numbers(x)
@@ -21,6 +28,8 @@ turn <- function(x, y = 0) {
 
   score <- x + y
 
+  rolls <- c(x, y)
+
   type <- if (x == 10) {
     "strike"
   } else if (score == 10) {
@@ -29,5 +38,9 @@ turn <- function(x, y = 0) {
     "standard"
   }
 
-  structure(score, type = type, class = "turn")
+  structure(score,
+    rolls = rolls,
+    type = type,
+    class = "turn"
+  )
 }
