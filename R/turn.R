@@ -15,5 +15,9 @@ turn <- function(x, y) {
   assertive::assert_is_a_number(y)
   assertive::assert_all_are_whole_numbers(y)
 
+  assertive::assert_all_are_greater_than_or_equal_to(x, 0)
+  assertive::assert_all_are_greater_than_or_equal_to(y, 0)
+  assertive::assert_all_are_less_than_or_equal_to(x+y, 10)
+
   structure(list(), class = "turn")
 }
