@@ -34,3 +34,11 @@ test_that("output is the sum of the input", {
   expect_true(turn(1) == 1)
   expect_true(turn(1, 2) ==  3)
 })
+
+
+test_that("Correct attribute type", {
+  expect_equal(attr(turn(1), "type"), "standard")
+  expect_equal(attr(turn(5, 5), "type"), "spare")
+  expect_equal(attr(turn(10), "type"), "strike")
+})
+
