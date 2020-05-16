@@ -19,5 +19,5 @@ turn <- function(x, y = 0) {
   assertive::assert_all_are_greater_than_or_equal_to(y, 0)
   assertive::assert_all_are_less_than_or_equal_to(x+y, 10)
 
-  structure(list(), class = "turn")
+  structure(x + y, class = "turn")
 }

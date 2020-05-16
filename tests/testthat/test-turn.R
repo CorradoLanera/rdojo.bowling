@@ -31,6 +31,6 @@ test_that("second input could be empty (default zero)",{
 
 
 test_that("output is the sum of the input", {
-  expect_equal(turn(1), 1)
-  expect_equal(turn(1, 2), 3)
+  expect_true(turn(1) == 1)
+  expect_true(turn(1, 2) ==  3)
 })
