@@ -40,7 +40,7 @@ spelling::spell_check_package()
 spelling::update_wordlist()
 lintr::lint_package()
 usethis::use_github_action("test-coverage")
-
+usethis::use_coverage()
 
 usethis::use_version()
 

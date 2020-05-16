@@ -5,3 +5,4 @@
 ^README\.Rmd$
 ^DEVELOP-SETUP\.R$
 ^\.github$
+^codecov\.yml$
