@@ -24,7 +24,7 @@ turn <- function(x, y = 0) {
 
   assertive::assert_all_are_greater_than_or_equal_to(x, 0)
   assertive::assert_all_are_greater_than_or_equal_to(y, 0)
-  assertive::assert_all_are_less_than_or_equal_to(x+y, 10)
+  assertive::assert_all_are_less_than_or_equal_to(x + y, 10)
 
   score <- x + y
 
@@ -57,7 +57,7 @@ turn <- function(x, y = 0) {
 #' @export
 print.turn <- function(x, ...) {
 
-  type <- attr(x, 'type')
+  type <- attr(x, "type")
 
   cli::cat_rule(glue("Turn's score: {x} ({type})"))
   cli::cat_bullet(glue("First roll: {attr(x, 'rolls')[[1]]}"))

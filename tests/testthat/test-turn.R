@@ -25,7 +25,7 @@ test_that("inputs are between 0 and 10 (sum included)", {
   expect_error(turn(9, 2))
 })
 
-test_that("second input could be empty (default zero)",{
+test_that("second input could be empty (default zero)", {
   expect_equal(turn(1, 0), turn(1))
 })
 

@@ -6,3 +6,4 @@
 ^DEVELOP-SETUP\.R$
 ^\.github$
 ^codecov\.yml$
+^\.lintr$
