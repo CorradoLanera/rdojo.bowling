@@ -47,3 +47,25 @@ test_that("original rolls are retained", {
   expect_equal(attr(turn(1), "rolls"), c(1, 0))
   expect_equal(attr(turn(10), "rolls"), c(10, 0))
 })
+
+
+test_that("print nicely", {
+  turn_1 <- turn(1)
+  expect_equal(print(turn_1), turn_1)
+  expect_output(print(turn_1), "First roll: 1")
+  expect_output(print(turn_1), "Second roll: 0")
+  expect_output(print(turn_1), "score: 1")
+  expect_output(print(turn_1), "standard")
+
+  strike <- turn(10)
+  expect_output(print(strike), "First roll: 10")
+  expect_output(print(strike), "Second roll: 0")
+  expect_output(print(strike), "score: 10")
+  expect_output(print(strike), "strike")
+
+  spare <- turn(5, 5)
+  expect_output(print(spare), "First roll: 5")
+  expect_output(print(spare), "Second roll: 5")
+  expect_output(print(spare), "score: 10")
+  expect_output(print(spare), "spare")
+})

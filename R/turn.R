@@ -44,3 +44,24 @@ turn <- function(x, y = 0) {
     class = "turn"
   )
 }
+
+
+#' Print method for turn object
+#'
+#' @param x an object of class [turn]
+#' @param ... further arguments passed to or from other methods
+#'   (currently unused)
+#'
+#' @return x invisibly
+#' @importFrom glue glue
+#' @export
+print.turn <- function(x, ...) {
+
+  type <- attr(x, 'type')
+
+  cli::cat_rule(glue("Turn's score: {x} ({type})"))
+  cli::cat_bullet(glue("First roll: {attr(x, 'rolls')[[1]]}"))
+  cli::cat_bullet(glue("Second roll: {attr(x, 'rolls')[[2]]}"))
+
+  invisible(x)
+}
