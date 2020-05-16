@@ -19,5 +19,15 @@ turn <- function(x, y = 0) {
   assertive::assert_all_are_greater_than_or_equal_to(y, 0)
   assertive::assert_all_are_less_than_or_equal_to(x+y, 10)
 
-  structure(x + y, class = "turn")
+  score <- x + y
+
+  type <- if (x == 10) {
+    "strike"
+  } else if (score == 10) {
+    "spare"
+  } else {
+    "standard"
+  }
+
+  structure(score, type = type, class = "turn")
 }
