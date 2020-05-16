@@ -1,4 +1,4 @@
-# rdojo.bowling (development version)
+# rdojo.bowling 0.1.0
 
 * Update README with project structure, usage, installation, description
   of the problem and credits.
