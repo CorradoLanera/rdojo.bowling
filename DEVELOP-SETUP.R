@@ -12,6 +12,7 @@ requireNamespace("rmarkdown")
 requireNamespace("devtools")
 requireNamespace("autotestthat")
 requireNamespace("miniUI")
+requireNamespace("assertive")
 
 
 usethis::create_package("rdojo.bowling")
