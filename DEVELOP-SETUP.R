@@ -1,16 +1,7 @@
 requireNamespace("usethis")
 requireNamespace("renv")
-requireNamespace("whisker")
 requireNamespace("lintr")
-requireNamespace("knitr")
-requireNamespace("roxygen2")
 requireNamespace("spelling")
-requireNamespace("styler")
-requireNamespace("base64enc")
-requireNamespace("tinytex")
-requireNamespace("rmarkdown")
-requireNamespace("devtools")
-requireNamespace("autotestthat")
 
 
 usethis::create_package("rdojo.bowling")
