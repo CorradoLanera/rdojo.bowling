@@ -42,3 +42,8 @@ test_that("Correct attribute type", {
   expect_equal(attr(turn(10), "type"), "strike")
 })
 
+test_that("original rolls are retained", {
+  expect_equal(attr(turn(1, 2), "rolls"), c(1, 2))
+  expect_equal(attr(turn(1), "rolls"), c(1, 0))
+  expect_equal(attr(turn(10), "rolls"), c(10, 0))
+})
