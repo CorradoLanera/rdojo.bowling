@@ -8,7 +8,7 @@
 #'
 #' @examples
 #' turn(1, 1)
-turn <- function(x, y) {
+turn <- function(x, y = 0) {
   assertive::assert_is_a_number(x)
   assertive::assert_all_are_whole_numbers(x)
 
