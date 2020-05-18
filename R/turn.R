@@ -74,7 +74,11 @@ get_type.turn <- function(x) {
   attr(x, "type")
 }
 
-get_roll <- function(turn, n = c(1, 2)) {
+get_roll <- function(turn, n) {
+  UseMethod("get_roll", turn)
+}
+
+get_roll.turn <- function(turn, n = c(1, 2)) {
   n <- match.arg(as.character(n), choices = c("1", "2")) %>%
     as.integer()
 
