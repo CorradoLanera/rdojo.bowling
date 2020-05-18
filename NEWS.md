@@ -1,3 +1,14 @@
+
+* `game()` prints the number of turns and (if it is a forfait game) the
+  number of really played and the number of added `turn(0, 0)` (#4).
+* `game()` stores if the number of turns is the game, if it is a
+  forfait game, and the number or _really played_ turns (#4).
+* `game()` return the sequences of turns, eventually added with 
+  `turn(0, 0)` if some turns are missing (#4).
+* `game()` can accept an arbitrary number of **turn** objects, given
+  that they represent a valid (possibly forfaittary) game (#4).
+* `game()` defined to store the sequence of turns in a game (#4).
+
 # rdojo.bowling 0.2.0
 
 * `turn()` print its output showing the overall and rolls scores, and
