@@ -1,5 +1,7 @@
-# rdojo.bowling 0.3.0
+* `eval_score_turn()` evaluate the "actual" score for a single turn in
+  a game.
 
+# rdojo.bowling 0.3.0
 
 * `game()` prints the number of turns and (if it is a forfait game) the
   number of really played and the number of added `turn(0, 0)` (#4).
@@ -8,7 +10,7 @@
 * `game()` return the sequences of turns, eventually added with 
   `turn(0, 0)` if some turns are missing (#4).
 * `game()` can accept an arbitrary number of **turn** objects, given
-  that they represent a valid (possibly forfaittary) game (#4).
+  that they represent a valid (possibly forfait) game (#4).
 * `game()` defined to store the sequence of turns in a game (#4).
 
 # rdojo.bowling 0.2.0

@@ -69,3 +69,14 @@ test_that("turn print nicely", {
   expect_output(print(spare), "score: 10")
   expect_output(print(spare), "spare")
 })
+
+
+test_that("get_roll return correct roll", {
+  t0 <- turn(7)
+  expect_equal(get_roll(t0, 1), 7)
+  expect_equal(get_roll(t0, 2), 0)
+
+  t1 <- turn(1, 3)
+  expect_equal(get_roll(t1, 1), 1)
+  expect_equal(get_roll(t1, 2), 3)
+})
