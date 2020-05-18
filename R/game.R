@@ -74,5 +74,5 @@ game <- function(...) {
 
 
 
-  structure(list(), class = "game")
+  structure(inputs, class = "game")
 }
