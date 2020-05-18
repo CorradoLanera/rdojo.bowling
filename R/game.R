@@ -116,5 +116,40 @@ game <- function(...) {
   }
 
 
-  structure(inputs, class = "game")
+  structure(inputs,
+    game_length = length(inputs),
+    turns_played = game_len,
+    forfait = to_complete,
+    class = "game"
+  )
 }
+
+
+
+
+
+#' Print method for turn object
+#'
+#' @param x an object of class [game]
+#' @param ... further arguments passed to or from other methods
+#'   (currently unused)
+#'
+#' @return x invisibly
+#' @importFrom glue glue
+#' @export
+print.game <- function(x, ...) {
+
+  played <- attr(x, "turns_played")
+  turns <- attr(x, "game_length")
+  forfait <- attr(x, "forfait")
+
+  info <- ""
+  if (forfait) {
+    info <- glue(" ({played} played + {turns - played} forfait)")
+  }
+
+  cli::cat_rule(glue("Game length: {turns} turns{info}"))
+
+  invisible(x)
+}
+

@@ -91,29 +91,29 @@ test_that("
     turns and a warning)
   ", {
 
-     expect_identical(
+     expect_equivalent(
      expect_warning(game(t1), "A complete game has 10 turns."),
       game(t1, t0, t0, t0, t0, t0, t0, t0, t0, t0)
     )
-    expect_identical(
+    expect_equivalent(
       expect_warning(game(turn(5)), "A complete game has 10 turns."),
       game(turn(5, 0), t0, t0, t0, t0, t0, t0, t0, t0, t0)
     )
-    expect_identical(
+    expect_equivalent(
       expect_warning(
         game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_spare),
         "You finished your game with a spare/stike"
       ),
       game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_spare, t0)
     )
-    expect_identical(
+    expect_equivalent(
       expect_warning(
         game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_strike),
         "You finished your game with a spare/stike"
       ),
       game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_strike, t0)
     )
-    expect_identical(
+    expect_equivalent(
       expect_warning(
         game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_strike, t_strike),
         "You finished your game with a spare/stike"
@@ -128,6 +128,6 @@ test_that("
 test_that("game print nicely", {
   g1 <- suppressWarnings(game(t1))
   expect_equal(print(g1), g1)
-  expect_output(print(g1), "Game length: 10 \\(1 played \\+ 9 forfeit\\)")
+  expect_output(print(g1), "Game length: 10 turns \\(1 played \\+ 9 forfait\\)")
 })
 
