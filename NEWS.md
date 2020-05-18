@@ -1,3 +1,5 @@
+# rdojo.bowling 0.3.0
+
 
 * `game()` prints the number of turns and (if it is a forfait game) the
   number of really played and the number of added `turn(0, 0)` (#4).
