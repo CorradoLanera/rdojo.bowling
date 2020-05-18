@@ -26,3 +26,12 @@ test_that("Compute real score for complex turns", {
   )
   expect_equal(eval_score_turn(g3, 1), 25)
 })
+
+
+test_that("cannot compute score for extra turns", {
+  tx <- turn(10)
+  gx <- game(tx, tx, tx, tx, tx, tx, tx, tx, tx, tx, tx, tx)
+
+  expect_error(eval_score_turn(gx, 11))
+  expect_error(eval_score_turn(gx, 12))
+})
