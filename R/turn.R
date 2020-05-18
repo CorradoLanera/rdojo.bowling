@@ -15,7 +15,7 @@
 #' turn(1)    # 1, standard
 #' turn(5, 5) # 10, spare
 #' turn(10)   # 10, strike
-turn <- function(x, y = 0) {
+turn <- function(x, y = 0L) {
   assertive::assert_is_a_number(x)
   assertive::assert_all_are_whole_numbers(x)
 
@@ -26,13 +26,16 @@ turn <- function(x, y = 0) {
   assertive::assert_all_are_greater_than_or_equal_to(y, 0)
   assertive::assert_all_are_less_than_or_equal_to(x + y, 10)
 
+  x <- as.integer(x)
+  y <- as.integer(y)
+
   score <- x + y
 
   rolls <- c(x, y)
 
-  type <- if (x == 10) {
+  type <- if (x == 10L) {
     "strike"
-  } else if (score == 10) {
+  } else if (score == 10L) {
     "spare"
   } else {
     "standard"

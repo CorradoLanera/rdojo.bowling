@@ -12,8 +12,8 @@
 #' eval_score_turn(game, 1) # 12
 eval_score_turn <- function(game, n_turn) {
 
-  assertive::assert_all_are_greater_than_or_equal_to(n_turn, 1)
-  assertive::assert_all_are_less_than_or_equal_to(n_turn, 10)
+  assertive::assert_all_are_greater_than_or_equal_to(n_turn, 1L)
+  assertive::assert_all_are_less_than_or_equal_to(n_turn, 10L)
   assertive::assert_is_a_number(n_turn)
   assertive::assert_all_are_whole_numbers(n_turn)
 
@@ -22,15 +22,16 @@ eval_score_turn <- function(game, n_turn) {
   turn_type <- get_type(turn)
 
   second_turn <- turn_type == "strike" &&
-                 get_type(game[[n_turn  + 1]]) == "strike"
+                 get_type(game[[n_turn  + 1L]]) == "strike"
 
-  res <- switch(turn_type,
-    standard = turn[[1]],
-    spare    = turn[[1]] + get_roll(game[[n_turn + 1]], 1),
-    strike   = turn[[1]] +
-               game[[n_turn + 1]][[1]] +
-               ifelse(second_turn, get_roll(game[[n_turn + 2]], 1), 0)
+  switch(turn_type,
+    standard = turn[[1L]],
+    spare    = turn[[1L]] + get_roll(game[[n_turn + 1L]], 1L),
+    strike   = turn[[1L]] +
+               game[[n_turn + 1L]][[1L]] +
+               ifelse(second_turn,
+                 get_roll(game[[n_turn + 2L]], 1L),
+                 0L
+               )
   )
-
-  res
 }

@@ -45,28 +45,28 @@ game <- function(...) {
 
   game_len <- length(inputs)
 
-  if (game_len > 10 && get_type(inputs[[10]]) == "standard") {
+  if (game_len > 10L && get_type(inputs[[10L]]) == "standard") {
     stop(glue("
     If your 10th turn is a standard turn, it must be the last turn.
 
-      You have played {game_len} turns ({game_len - 10} exceeding).
+      You have played {game_len} turns ({game_len - 10L} exceeding).
 
       Please play a regular game.
     "))
   }
 
-  if (game_len > 11 &&
+  if (game_len > 11L &&
        (
-         get_type(inputs[[10]]) != "strike" ||
-         get_type(inputs[[11]]) != "strike"
+         get_type(inputs[[10L]]) != "strike" ||
+         get_type(inputs[[11L]]) != "strike"
        )
   ) {
     stop(glue("
     You can play up to 12 turns (if 10th and 11th are both strikes).
 
       You have played {game_len} turns with:
-      - 10th turn a {get_type(inputs[[10]])} and
-      - 11th turn a {get_type(inputs[[11]])}.
+      - 10th turn a {get_type(inputs[[10L]])} and
+      - 11th turn a {get_type(inputs[[11L]])}.
 
       Please play a regular game.
     "))
@@ -75,22 +75,22 @@ game <- function(...) {
 
   to_complete <- FALSE
 
-  if (game_len < 10) {
+  if (game_len < 10L) {
     warning(glue("
     You have played {game_len} turns only.
 
-      A complete game has 10 turns. The {10 - game_len} missing turns
+      A complete game has 10 turns. The {10L - game_len} missing turns
       will be all considered with a 0 score each rolls.
     "))
     to_complete <- TRUE
 
   } else if (
 
-    (game_len == 10 && get_type(inputs[[10]]) != "standard") ||
+    (game_len == 10L && get_type(inputs[[10L]]) != "standard") ||
     (
-      game_len == 11 &&
-      get_type(inputs[[10]]) == "strike" &&
-      get_type(inputs[[11]]) == "strike"
+      game_len == 11L &&
+      get_type(inputs[[10L]]) == "strike" &&
+      get_type(inputs[[11L]]) == "strike"
     )
   ) {
     warning(glue("
@@ -103,13 +103,13 @@ game <- function(...) {
   }
 
   if (to_complete) {
-    missing_turns <- seq_len(max(10, game_len + 1)) %>%
+    missing_turns <- seq_len(max(10L, game_len + 1L)) %>%
       setdiff(seq_len(game_len))
     missing_turns <- purrr::set_names(
       missing_turns, paste("turn", missing_turns)
     )
 
-    game_empty <- turn(0, 0)
+    game_empty <- turn(0L, 0L)
 
     inputs <- c(
       inputs,
