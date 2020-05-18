@@ -46,4 +46,3 @@ test_that("turns must be a (single) positive integer", {
     "n_turn has length 2, not 1"
   )
 })
-
