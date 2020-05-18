@@ -14,10 +14,15 @@ eval_score_turn <- function(game, n_turn) {
   turn <- game[[n_turn]]
   turn_type <- get_type(turn)
 
+  second_turn <- turn_type == "strike" &&
+                 get_type(game[[n_turn  + 1]]) == "strike"
+
   res <- switch(turn_type,
     standard = turn[[1]],
     spare    = turn[[1]] + get_roll(game[[n_turn + 1]], 1),
-    strike   = turn[[1]] + eval_score_turn(game, n_turn + 1)
+    strike   = turn[[1]] +
+               game[[n_turn + 1]][[1]] +
+               ifelse(second_turn, get_roll(game[[n_turn + 2]], 1), 0)
   )
 
   res
