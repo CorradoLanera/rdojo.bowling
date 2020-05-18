@@ -1,3 +1,5 @@
+# rdojo.bowling 0.4.0
+
 * `eval_score_turn()` evaluate the "actual" score for a single turn in
   a game.
 
