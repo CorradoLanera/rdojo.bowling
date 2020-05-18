@@ -6,5 +6,6 @@ test_that("game return an object of class game", {
 })
 
 test_that("game trow error if not all objects are of class turn", {
-  expect_error(game(t1, 3))
+  expect_error(game(t1, 3), "3 is of class numeric")
+  expect_error(game(t1, "foo", 3), '"foo" is of class character')
 })

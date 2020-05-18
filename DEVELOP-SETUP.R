@@ -33,7 +33,10 @@ lintr::lint_package()
 usethis::use_github_action("test-coverage")
 usethis::use_coverage()
 
+usethis::use_tidy_eval()
+
 usethis::use_version()
+
 
 renv::status()
 renv::snapshot(prompt = FALSE)
