@@ -87,3 +87,23 @@ get_roll.turn <- function(turn, n = c(1, 2)) {
 
   attr(turn, "rolls")[[n]]
 }
+
+render <- function(x) {
+  UseMethod("render", x)
+}
+
+render.turn <- function(x) {
+  marks <- c(
+    `0` = "-", `1` = "1", `2` = "2", `3` = "3", `4` = "4", `5` = "5",
+    `6` = "6", `7` = "7", `8` = "8", `9` = "9", `10` = "X"
+  )
+
+  r1 <- marks[as.character(get_roll(x, 1))]
+  r2 <- switch(get_type(x),
+               standard = marks[as.character(get_roll(x, 2))],
+               spare = "/",
+               strike = " "
+  )
+
+  paste0(r1, r2)
+}

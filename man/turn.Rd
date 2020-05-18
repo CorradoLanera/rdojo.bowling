@@ -4,7 +4,7 @@
 \alias{turn}
 \title{Turn}
 \usage{
-turn(x, y = 0)
+turn(x, y = 0L)
 }
 \arguments{
 \item{x}{(int) score for the first roll in the turn}

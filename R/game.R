@@ -150,7 +150,16 @@ print.game <- function(x, ...) {
     info <- glue(" ({played} played + {turns - played} forfait)")
   }
 
+  normal  <- paste(purrr::map_chr(x[1:10], render.turn), collapse = " ")
+  extra <- purrr::map_chr(x[-(1:10)], render.turn) %>%
+    paste(collapse = " ") %>%
+    stringr::str_pad(5, "right")
+
   cli::cat_rule(glue("Game length: {turns} turns{info}"))
+  cli::cat_boxx(paste0("|", normal, "|", extra, "|"))
 
   invisible(x)
 }
+
+
+
