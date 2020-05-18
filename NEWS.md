@@ -1,3 +1,6 @@
+* `eval_score_turn()` evaluate the "actual" score for a single turn in
+  a game.
+
 # rdojo.bowling 0.3.0
 
 * `game()` prints the number of turns and (if it is a forfait game) the
