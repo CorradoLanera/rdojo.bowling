@@ -1,4 +1,4 @@
-test_that("turn return an object of class turn on a couple of integers", {
+test_that("turn return an object of class turn on two of integers", {
 
   # output class
   expect_is(turn(1, 1), "turn")

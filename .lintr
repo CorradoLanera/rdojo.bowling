@@ -1,8 +1,7 @@
 linters: with_defaults(
-    extraction_operator_linter = NULL, # 1408
-    # line_length_linter = lintr::line_length_linter(72),
-    line_length_linter = NULL, # 913
-    cyclocomp_linter = NULL, # 2
+    extraction_operator_linter = lintr::extraction_operator_linter,
+    line_length_linter = lintr::line_length_linter(72),
+    cyclocomp_linter = lintr::cyclocomp_linter,
     T_and_F_symbol_linter = lintr::T_and_F_symbol_linter,
     closed_curly_linter = lintr::closed_curly_linter(TRUE),
     absolute_path_linter = lintr::absolute_path_linter,
@@ -15,10 +14,6 @@ linters: with_defaults(
     dummy_linter = NULL
   )
 exclusions: list(c(
-    list.files("data",      recursive = TRUE, full.names = TRUE),
-    list.files("docs",      recursive = TRUE, full.names = TRUE),
-    list.files("inst/doc",  recursive = TRUE, full.names = TRUE),
-    list.files("man",       recursive = TRUE, full.names = TRUE),
-    list.files("pkgdown",   recursive = TRUE, full.names = TRUE),
-    list.files("vignettes", recursive = TRUE, full.names = TRUE)
+    list.files("inst",  recursive = TRUE, full.names = TRUE),
+    list.files("man",       recursive = TRUE, full.names = TRUE)
   ))

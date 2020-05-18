@@ -7,13 +7,15 @@
 #'   character vector.
 #'
 #' * \code{\link[rlang:nse-defuse]{enquo}()} and
-#'   \code{\link[rlang:nse-defuse]{enquos}()} delay the execution of one or
-#'   several function arguments. \code{enquo()} returns a single quoted
-#'   expression, which is like a blueprint for the delayed computation.
+#'   \code{\link[rlang:nse-defuse]{enquos}()} delay the execution of one
+#'   or several function arguments. \code{enquo()} returns a single
+#'   quoted expression, which is like a blueprint for the delayed
+#'   computation.
 #'   \code{enquos()} returns a list of such quoted expressions.
 #'
-#' * \code{\link[rlang:nse-defuse]{expr}()} quotes a new expression _locally_. It
-#'   is mostly useful to build new expressions around arguments
+#' * \code{\link[rlang:nse-defuse]{expr}()} quotes a new expression
+#'    _locally_.
+#'   It is mostly useful to build new expressions around arguments
 #'   captured with [enquo()] or [enquos()]:
 #'   \code{expr(mean(!!enquo(arg), na.rm = TRUE))}.
 #'
@@ -41,7 +43,8 @@
 #' @md
 #' @name tidyeval
 #' @keywords internal
-#' @importFrom rlang expr enquo enquos sym syms .data := as_name as_label
+#' @importFrom rlang expr enquo enquos sym syms .data :=
+#' @importFrom rlang as_name as_label
 #' @aliases expr enquo enquos sym syms .data := as_name as_label
 #' @export expr enquo enquos sym syms .data := as_name as_label
 NULL

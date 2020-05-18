@@ -17,7 +17,9 @@ Imports:
     assertive,
     cli,
     glue,
-    rlang (>= 0.1.2)
+    rlang (>= 0.1.2),
+    magrittr,
+    purrr
 Suggests: 
     autotestthat (>= 0.1.1),
     covr,

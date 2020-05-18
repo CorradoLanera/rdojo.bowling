@@ -20,8 +20,8 @@ game <- function(...) {
   inputs_name <- rlang::enexprs(...) %>%
     purrr::map_chr(rlang::as_label)
 
-  inputs <- rlang::list2(...) %>%
-    purrr::set_names(glue("turn {seq_along(.)}"))
+  inputs <- rlang::list2(...)
+  inputs <- purrr::set_names(inputs, glue("turn {seq_along(inputs)}"))
 
   are_turns <- purrr::map_lgl(inputs, inherits, "turn")
 
@@ -29,8 +29,8 @@ game <- function(...) {
     wrong_input <- inputs_name[!are_turns]
     wrong_classe <- purrr::map_chr(inputs[!are_turns], class)
     err_msg <- paste(
-      '  - input', wrong_input, 'is of class', wrong_classe,
-      collapse = ',\n'
+      "  - input", wrong_input, "is of class", wrong_classe,
+      collapse = ",\n"
     )
 
     stop(glue("
@@ -49,7 +49,7 @@ game <- function(...) {
     stop(glue("
     If your 10th turn is a standard turn, it must be the last turn.
 
-      You have played {game_len} turns (which are {game_len - 10} more than allowed).
+      You have played {game_len} turns ({game_len - 10} exceeding).
 
       Please play a regular game.
     "))
@@ -62,7 +62,7 @@ game <- function(...) {
        )
   ) {
     stop(glue("
-    You can play 12 turns at maximum, and only if your 10th and 11th games are both strikes.
+    You can play up to 12 turns (if 10th and 11th are both strikes).
 
       You have played {game_len} turns with:
       - 10th turn a {get_type(inputs[[10]])} and
@@ -104,8 +104,10 @@ game <- function(...) {
 
   if (to_complete) {
     missing_turns <- seq_len(max(10, game_len + 1)) %>%
-      setdiff(seq_len(game_len)) %>%
-      purrr::set_names(paste("turn", .))
+      setdiff(seq_len(game_len))
+    missing_turns <- purrr::set_names(
+      missing_turns, paste("turn", missing_turns)
+    )
 
     game_empty <- turn(0, 0)
 
@@ -152,4 +154,3 @@ print.game <- function(x, ...) {
 
   invisible(x)
 }
-

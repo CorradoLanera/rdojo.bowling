@@ -1,12 +1,12 @@
 # rdojo.bowling 0.2.0
 
 * `turn()` print its output showing the overall and rolls scores, and
-  the turns's type (#2).
+  the turns' type (#2).
 * `turn()` stores the correct type of turns, ie standard, spare, or
   strike (#2).
 * `turn()` returns overall score, and retain individual rolls' scores
    (#2).
-* `turn()` can accept one or two single integere argument (default for
+* `turn()` can accept one or two single integer arguments (default for
   the second is 0) which individually and in sum must be included in
   [0-1] (#2).
 * `turn()` defined to store turn's rolls (#2).

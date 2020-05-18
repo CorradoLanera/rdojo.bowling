@@ -10,7 +10,10 @@ test_that("game return an object of class game", {
 
 test_that("game trow error if not all objects are of class turn", {
   expect_error(expect_warning(game(t1, 3)), "3 is of class numeric")
-  expect_error(expect_warning(game(t1, "foo", 3)), '"foo" is of class character')
+  expect_error(
+    expect_warning(game(t1, "foo", 3)),
+    '"foo" is of class character'
+  )
 })
 
 
@@ -128,6 +131,8 @@ test_that("
 test_that("game print nicely", {
   g1 <- suppressWarnings(game(t1))
   expect_equal(print(g1), g1)
-  expect_output(print(g1), "Game length: 10 turns \\(1 played \\+ 9 forfait\\)")
+  expect_output(
+    print(g1),
+    "Game length: 10 turns \\(1 played \\+ 9 forfait\\)"
+  )
 })
-
