@@ -80,3 +80,12 @@ test_that("get_roll return correct roll", {
   expect_equal(get_roll(t1, 1), 1)
   expect_equal(get_roll(t1, 2), 3)
 })
+
+
+test_that("render correctly turns", {
+  expect_equal(render(turn(1, 2)), "12")
+  expect_equal(render(turn(0, 2)), "-2")
+  expect_equal(render(turn(1, 0)), "1-")
+  expect_equal(render(turn(5, 5)), "5/")
+  expect_equal(render(turn(10)), "X ")
+})
