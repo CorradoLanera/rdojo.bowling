@@ -16,7 +16,10 @@ BugReports:
 Imports: 
     assertive,
     cli,
-    glue
+    glue,
+    rlang (>= 0.1.2),
+    magrittr,
+    purrr
 Suggests: 
     autotestthat (>= 0.1.1),
     covr,
@@ -26,7 +29,8 @@ Suggests:
     rmarkdown,
     spelling,
     testthat,
-    usethis
+    usethis,
+    roxygen2
 Remotes: 
     CorradoLanera/autotestthat
 Encoding: UTF-8

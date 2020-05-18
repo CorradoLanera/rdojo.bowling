@@ -25,15 +25,23 @@ usethis::use_spell_check()
 usethis::use_testthat()
 usethis::use_tidy_description()
 usethis::use_tidy_style()
+usethis::use_pipe()
 
 usethis::use_news_md()
+
+# cycle between those before every pull-request
 spelling::spell_check_package()
 spelling::update_wordlist()
+covr::report()
 lintr::lint_package()
+
 usethis::use_github_action("test-coverage")
 usethis::use_coverage()
 
+usethis::use_tidy_eval()
+
 usethis::use_version()
+
 
 renv::status()
 renv::snapshot(prompt = FALSE)

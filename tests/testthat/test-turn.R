@@ -1,4 +1,4 @@
-test_that("turn return an object of class turn on a couple of integers", {
+test_that("turn return an object of class turn on two of integers", {
 
   # output class
   expect_is(turn(1, 1), "turn")
@@ -49,7 +49,7 @@ test_that("original rolls are retained", {
 })
 
 
-test_that("print nicely", {
+test_that("turn print nicely", {
   turn_1 <- turn(1)
   expect_equal(print(turn_1), turn_1)
   expect_output(print(turn_1), "First roll: 1")
