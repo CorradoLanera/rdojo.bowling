@@ -121,6 +121,13 @@ test_that("
       game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_strike, t_strike, t0)
     )
 
+})
 
+
+
+test_that("game print nicely", {
+  g1 <- suppressWarnings(game(t1))
+  expect_equal(print(g1), g1)
+  expect_output(print(g1), "Game length: 10 \\(1 played \\+ 9 forfeit\\)")
 })
 
