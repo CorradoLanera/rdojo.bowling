@@ -4,13 +4,13 @@ t_strike <- turn(10)
 t0 <- turn(0, 0)
 
 test_that("game return an object of class game", {
-  expect_is(game(t1), "game")
-  expect_is(game(t1, t1), "game")
+  expect_is(expect_warning(game(t1)), "game")
+  expect_is(expect_warning(game(t1, t1)), "game")
 })
 
 test_that("game trow error if not all objects are of class turn", {
-  expect_error(game(t1, 3), "3 is of class numeric")
-  expect_error(game(t1, "foo", 3), '"foo" is of class character')
+  expect_error(expect_warning(game(t1, 3)), "3 is of class numeric")
+  expect_error(expect_warning(game(t1, "foo", 3)), '"foo" is of class character')
 })
 
 
@@ -77,12 +77,12 @@ test_that("Accept the maximum number of turns required", {
 
 test_that("game() returns an ordered list of turns", {
   expect_equivalent(
-    unclass(game(t1, t1)),
-    list(t1, t1)
+    unclass(expect_warning(game(t1, t1))),
+    list(t1, t1, t0, t0, t0, t0, t0, t0, t0, t0)
   )
-  expect_false(all(
+  expect_false(expect_warning(all(
     purrr::map2_lgl(game(t_spare, t1), game(t1, t_spare), `==`)
-  ))
+  )))
 })
 
 
@@ -91,24 +91,33 @@ test_that("
     turns and a warning)
   ", {
 
-    expect_identical(
-      game(t1),
+     expect_identical(
+     expect_warning(game(t1), "A complete game has 10 turns."),
       game(t1, t0, t0, t0, t0, t0, t0, t0, t0, t0)
     )
     expect_identical(
-      game(turn(5)),
+      expect_warning(game(turn(5)), "A complete game has 10 turns."),
       game(turn(5, 0), t0, t0, t0, t0, t0, t0, t0, t0, t0)
     )
     expect_identical(
-      game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_spare),
+      expect_warning(
+        game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_spare),
+        "You finished your game with a spare/stike"
+      ),
       game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_spare, t0)
     )
     expect_identical(
-      game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_strike),
+      expect_warning(
+        game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_strike),
+        "You finished your game with a spare/stike"
+      ),
       game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_strike, t0)
     )
     expect_identical(
-      game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_strike, t_strike),
+      expect_warning(
+        game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_strike, t_strike),
+        "You finished your game with a spare/stike"
+      ),
       game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_strike, t_strike, t0)
     )
 

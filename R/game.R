@@ -73,6 +73,48 @@ game <- function(...) {
   }
 
 
+  to_complete <- FALSE
+
+  if (game_len < 10) {
+    warning(glue("
+    You have played {game_len} turns only.
+
+      A complete game has 10 turns. The {10 - game_len} missing turns
+      will be all considered with a 0 score each rolls.
+    "))
+    to_complete <- TRUE
+
+  } else if (
+
+    (game_len == 10 && get_type(inputs[[10]]) != "standard") ||
+    (
+      game_len == 11 &&
+      get_type(inputs[[10]]) == "strike" &&
+      get_type(inputs[[11]]) == "strike"
+    )
+  ) {
+    warning(glue("
+    You finished your game with a spare/stike without play some of
+    the bouns rolls.
+
+    All the missing rolls will be considered with a 0 score.
+    "))
+    to_complete <- TRUE
+  }
+
+  if (to_complete) {
+    missing_turns <- seq_len(max(10, game_len + 1)) %>%
+      setdiff(seq_len(game_len)) %>%
+      purrr::set_names(paste("turn", .))
+
+    game_empty <- turn(0, 0)
+
+    inputs <- c(
+      inputs,
+      purrr::map(missing_turns, ~game_empty)
+    )
+  }
+
 
   structure(inputs, class = "game")
 }
