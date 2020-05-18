@@ -32,6 +32,18 @@ test_that("cannot compute score for extra turns", {
   tx <- turn(10)
   gx <- game(tx, tx, tx, tx, tx, tx, tx, tx, tx, tx, tx, tx)
 
-  expect_error(eval_score_turn(gx, 11))
-  expect_error(eval_score_turn(gx, 12))
+  expect_error(eval_score_turn(gx, 11), "less than or equal to 10")
+  expect_error(eval_score_turn(gx, 12), "less than or equal to 10")
 })
+
+test_that("turns must be a (single) positive integer", {
+  g1 <- suppressWarnings(game(turn(1)))
+
+  expect_error(eval_score_turn(gx, 0), "greater than or equal to 1")
+  expect_error(eval_score_turn(gx, 1.5), "not all whole numbers")
+  expect_error(
+    eval_score_turn(gx, c(1, 2)),
+    "n_turn has length 2, not 1"
+  )
+})
+
