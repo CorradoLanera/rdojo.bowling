@@ -65,3 +65,11 @@ print.turn <- function(x, ...) {
 
   invisible(x)
 }
+
+get_type <- function(x) {
+  UseMethod("get_type", x)
+}
+
+get_type.turn <- function(x) {
+  attr(x, "type")
+}

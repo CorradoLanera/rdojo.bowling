@@ -17,32 +17,38 @@ test_that("Do not collect more turns than possible", {
   expect_error(
     game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t1,
          t1 # eleventh without a final spare
-    )
+    ),
+    "You have played 11 turns"
   )
   expect_error(
     game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_spare,
          t1, t1 # twelveth without two final consecutives strikes
-    )
+    ),
+    "You have played 12 turns"
   )
   expect_error(
     game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_spare,
-         t_sprare, t1 # twelveth without two final consecutives strikes
-    )
+         t_spare, t1 # twelveth without two final consecutives strikes
+    ),
+    "11th turn a spare"
   )
   expect_error(
     game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_spare,
          t_strike, t1 # twelveth without two final consecutives strikes
-    )
+    ),
+    "10th turn a spare"
   )
   expect_error(
     game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_strike,
-         t_1, t1 # twelveth without two final consecutives strikes
-    )
+         t1, t1 # twelveth without two final consecutives strikes
+    ),
+    "11th turn a standard"
   )
   expect_error(
     game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_strike,
-         t_sprare, t1 # twelveth without two final consecutives strikes
-    )
+         t_spare, t1 # twelveth without two final consecutives strikes
+    ),
+    "11th turn a spare"
   )
 })
 
