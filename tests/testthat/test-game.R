@@ -84,3 +84,34 @@ test_that("game() returns an ordered list of turns", {
     purrr::map2_lgl(game(t_spare, t1), game(t1, t_spare), `==`)
   ))
 })
+
+
+test_that("
+    every game has at least 10 turns (eventually compeltet with zeros
+    turns and a warning)
+  ", {
+
+    expect_identical(
+      game(t1),
+      game(t1, t0, t0, t0, t0, t0, t0, t0, t0, t0)
+    )
+    expect_identical(
+      game(turn(5)),
+      game(turn(5, 0), t0, t0, t0, t0, t0, t0, t0, t0, t0)
+    )
+    expect_identical(
+      game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_spare),
+      game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_spare, t0)
+    )
+    expect_identical(
+      game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_strike),
+      game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_strike, t0)
+    )
+    expect_identical(
+      game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_strike, t_strike),
+      game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_strike, t_strike, t0)
+    )
+
+
+})
+
