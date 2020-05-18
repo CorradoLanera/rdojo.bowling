@@ -14,6 +14,9 @@ eval_score_turn <- function(game, n_turn) {
 
   assertive::assert_all_are_greater_than_or_equal_to(n_turn, 1)
   assertive::assert_all_are_less_than_or_equal_to(n_turn, 10)
+  assertive::assert_is_a_number(n_turn)
+  assertive::assert_all_are_whole_numbers(n_turn)
+
 
   turn <- game[[n_turn]]
   turn_type <- get_type(turn)
