@@ -1,6 +1,7 @@
 t1 <- turn(1, 2)
 t_spare <- turn(3, 7)
 t_strike <- turn(10)
+t0 <- turn(0, 0)
 
 test_that("game return an object of class game", {
   expect_is(game(t1), "game")
@@ -70,4 +71,16 @@ test_that("Accept the maximum number of turns required", {
     game(t1, t1, t1, t1, t1, t1, t1, t1, t1, t_strike, t_strike, t1),
     "game"
   )
+})
+
+
+
+test_that("game() returns an ordered list of turns", {
+  expect_equivalent(
+    unclass(game(t1, t1)),
+    list(t1, t1)
+  )
+  expect_false(all(
+    purrr::map2_lgl(game(t_spare, t1), game(t1, t_spare), `==`)
+  ))
 })
