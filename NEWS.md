@@ -1,3 +1,5 @@
+# rdojo.bowling 1.0.0
+
 * `game` show the overall score when printed (#6).
 * Fancy print for a `game`s objects, showing the sequences of rolls
   grouped in `turn`s using symbols for interesting scores, ie "-" for 0,

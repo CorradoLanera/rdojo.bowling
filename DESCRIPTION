@@ -1,6 +1,6 @@
 Package: rdojo.bowling
 Title: Bowling kata for R-TDD Dojo
-Version: 0.4.0
+Version: 1.0.0
 Authors@R: 
     person(given = "Corrado",
            family = "Lanera",
