@@ -1,7 +1,14 @@
+* `game` show the overall score when printed (#6).
+* Fancy print for a `game`s objects, showing the sequences of rolls
+  grouped in `turn`s using symbols for interesting scores, ie "-" for 0,
+  "/" for spare, and "X" for strike. The game is 10+2 turns bounded by
+  "|"s (#1).
+* `eval_game()` compute the overall score of a game (#6).
+
 # rdojo.bowling 0.4.0
 
 * `eval_score_turn()` evaluate the "actual" score for a single turn in
-  a game.
+  a game (#6).
 
 # rdojo.bowling 0.3.0
 
