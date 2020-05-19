@@ -15,8 +15,8 @@ maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www
 status](https://www.r-pkg.org/badges/version/rdojo.bowling)](https://CRAN.R-project.org/package=rdojo.bowling)
 <!-- badges: end -->
 
-The goal of rdojo.bowling is to implements and documents the bowling
-kata for the TDD dojo in R step-by-step.
+The goal of `{rdojo.bowling}` package is to implements and documents the
+bowling kata for the TDD dojo in R step-by-step.
 
 ## Installation
 
@@ -131,13 +131,13 @@ satisfaction of the following requirements.
   - (When scoring “X” indicates a strike, “/” indicates a spare, “-”
     indicates a miss)
 
-  - X X X X X X X X X X X X (12 rolls: 12 strikes) = 10 frames \* 30
+  - `X X X X X X X X X X X X` (12 rolls: 12 strikes) = 10 frames \* 30
     points = 300
 
-  - 9- 9- 9- 9- 9- 9- 9- 9- 9- 9- (20 rolls: 10 pairs of 9 and miss) =
+  - `9- 9- 9- 9- 9- 9- 9- 9- 9- 9-` (20 rolls: 10 pairs of 9 and miss) =
     10 frames \* 9 points = 90
 
-  - 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/5 (21 rolls: 10 pairs of 5 and spare,
+  - `5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/5` (21 rolls: 10 pairs of 5 and spare,
     with a final 5) = 10 frames \* 15 points = 150
 
   - check for valid rolls (negative, fractional, or more than 10 points
@@ -148,20 +148,31 @@ satisfaction of the following requirements.
     full game it will lead to a warning completing the game with 0s
     points each rolls, ie it is considered a *forfeit*)
 
-  - 5/ 5- (4 rolls: a 5 and a spare, a 5 and a miss) = 2 frames with 15
-    + 5 points = 20 points
+  - `5/ 5-` (4 rolls: a 5 and a spare, a 5 and a miss) = 2 frames with
+    15 + 5 points = 20 points
 
-  - X X X X X X X X X 5/ X X (12 rolls: 9 strikes, one 5 and a spare, 2
-    strikes) = 8 frames \* 30 points + 2 frame \* 20 points + extra
+  - `X X X X X X X X X 5/ X X` (12 rolls: 9 strikes, one 5 and a spare,
+    2 strikes) = 8 frames \* 30 points + 2 frame \* 20 points + extra
     frame = too much frames\! –\> error
 
-  - 5/ 5 (3 rolls: a 5 and a spare, a 5) = 1 frame + 1 not complete
+  - `5/ 5` (3 rolls: a 5 and a spare, a 5) = 1 frame + 1 not complete
     frame with 15 + 5 (+ 0s and a single warn for all the missing rolls)
     points = 20 points
 
 The requirements still in natural language until the program and its
 function names and API are defined. Next, each one must be connected to
 a corresponding formal test.
+
+### TDD cycle
+
+See the [commit messages
+history](https://github.com/CorradoLanera/rdojo.bowling/commits/master)
+for the full sequences. Or the [closed
+issue](https://github.com/CorradoLanera/rdojo.bowling/issues?q=is%3Aissue+is%3Aclosed)
+1-6 for the overview of the path followed. Or the [pull
+requests](https://github.com/CorradoLanera/rdojo.bowling/pulls?q=is%3Apr+is%3Aclosed)
+history (including the commit included in each pull-request) for grouped
+step-by-step view.
 
 ## Credits
 

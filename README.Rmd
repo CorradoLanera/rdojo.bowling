@@ -167,7 +167,15 @@ The requirements still in natural language until the program and its
 function names and API are defined. Next, each one must be connected to
 a corresponding formal test.
 
-
+### TDD cycle
+See the [commit messages
+history](https://github.com/CorradoLanera/rdojo.bowling/commits/master)
+for the full sequences. Or the [closed
+issue](https://github.com/CorradoLanera/rdojo.bowling/issues?q=is%3Aissue+is%3Aclosed)
+1-6 for the overview of the path followed. Or the [pull
+requests](https://github.com/CorradoLanera/rdojo.bowling/pulls?q=is%3Apr+is%3Aclosed)
+history (including the commit included in each pull-request) for grouped
+step-by-step view.
 
 
 ## Credits
