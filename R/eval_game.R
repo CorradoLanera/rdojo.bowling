@@ -1,8 +1,8 @@
 #' Eval the overall score of a game
 #'
-#' @param g a [game]
+#' @param g a [game] object.
 #'
-#' @return (int) the overall score of [g]
+#' @return (int) the overall score of g
 #' @export
 #'
 #' @examples

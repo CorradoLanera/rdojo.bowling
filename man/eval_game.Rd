@@ -7,10 +7,10 @@
 eval_game(g)
 }
 \arguments{
-\item{g}{a \link{game}}
+\item{g}{a \link{game} object.}
 }
 \value{
-(int) the overall score of \link{g}
+(int) the overall score of g
 }
 \description{
 Eval the overall score of a game

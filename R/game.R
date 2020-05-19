@@ -151,7 +151,7 @@ print.game <- function(x, ...) {
   }
 
   normal  <- paste(purrr::map_chr(x[1:10], render.turn), collapse = " ")
-  extra <- purrr::map_chr(x[-(1:10)], render.turn) %>%
+  extra <- purrr::map_chr(x[-c(1:10)], render.turn) %>%
     paste(collapse = " ") %>%
     stringr::str_pad(5, "right")
 
@@ -160,6 +160,3 @@ print.game <- function(x, ...) {
 
   invisible(x)
 }
-
-
-
