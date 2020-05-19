@@ -1,6 +1,6 @@
 Package: rdojo.bowling
 Title: Bowling kata for R-TDD Dojo
-Version: 0.1.0
+Version: 0.4.0
 Authors@R: 
     person(given = "Corrado",
            family = "Lanera",
@@ -13,10 +13,27 @@ License: GPL-3
 URL: https://github.com/CorradoLanera/rdojo.bowling
 BugReports: 
     https://github.com/CorradoLanera/rdojo.bowling/issues
+Imports: 
+    assertive,
+    cli,
+    glue,
+    rlang (>= 0.1.2),
+    magrittr,
+    purrr,
+    stringr
 Suggests: 
+    autotestthat (>= 0.1.1),
+    covr,
+    knitr,
+    lintr,
+    renv,
+    rmarkdown,
     spelling,
     testthat,
-    covr
+    usethis,
+    roxygen2
+Remotes: 
+    CorradoLanera/autotestthat
 Encoding: UTF-8
 Language: en-US
 LazyData: true
