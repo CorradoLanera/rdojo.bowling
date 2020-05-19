@@ -46,3 +46,16 @@ test_that("turns must be a (single) positive integer", {
     "n_turn has length 2, not 1"
   )
 })
+
+
+test_that("single roll game can be evaluated", {
+  t1 <- turn(1)
+  g1 <- suppressWarnings(game(t1))
+  expect_equal(eval_score_turn(g1, 1), 1)
+})
+
+test_that("Rolls game evaluation return integers", {
+  t1 <- turn(1)
+  g1 <- suppressWarnings(game(t1))
+  expect_is(eval_score_turn(g1, 1), "integer")
+})

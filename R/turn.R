@@ -15,7 +15,7 @@
 #' turn(1)    # 1, standard
 #' turn(5, 5) # 10, spare
 #' turn(10)   # 10, strike
-turn <- function(x, y = 0) {
+turn <- function(x, y = 0L) {
   assertive::assert_is_a_number(x)
   assertive::assert_all_are_whole_numbers(x)
 
@@ -26,13 +26,16 @@ turn <- function(x, y = 0) {
   assertive::assert_all_are_greater_than_or_equal_to(y, 0)
   assertive::assert_all_are_less_than_or_equal_to(x + y, 10)
 
+  x <- as.integer(x)
+  y <- as.integer(y)
+
   score <- x + y
 
   rolls <- c(x, y)
 
-  type <- if (x == 10) {
+  type <- if (x == 10L) {
     "strike"
-  } else if (score == 10) {
+  } else if (score == 10L) {
     "spare"
   } else {
     "standard"
@@ -83,4 +86,24 @@ get_roll.turn <- function(turn, n = c(1, 2)) {
     as.integer()
 
   attr(turn, "rolls")[[n]]
+}
+
+render <- function(x) {
+  UseMethod("render", x)
+}
+
+render.turn <- function(x) {
+  marks <- c(
+    `0` = "-", `1` = "1", `2` = "2", `3` = "3", `4` = "4", `5` = "5",
+    `6` = "6", `7` = "7", `8` = "8", `9` = "9", `10` = "X"
+  )
+
+  r1 <- marks[as.character(get_roll(x, 1))]
+  r2 <- switch(get_type(x),
+               standard = marks[as.character(get_roll(x, 2))],
+               spare = "/",
+               strike = " "
+  )
+
+  paste0(r1, r2)
 }
