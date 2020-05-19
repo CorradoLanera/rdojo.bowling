@@ -1,5 +1,5 @@
 t1 <- turn(1, 2)
-ts <- turn(3, 7)
+ts <- turn(5, 5)
 tx <- turn(10)
 t0 <- turn(0, 0)
 
@@ -150,16 +150,24 @@ test_that(
     expect_output(print(g1), "|1- -- -- -- -- -- -- -- -- --|-- --|")
 
     gx <- game(tx, tx, tx, tx, tx, tx, tx, tx, tx, tx, tx, tx)
-    expect_output(print(g1), "|X  X  X  X  X  X  X  X  X  X |X  X |")
+    expect_output(print(gx), "|X  X  X  X  X  X  X  X  X  X |X  X |")
 
     gs <- game(ts, ts, ts, ts, ts, ts, ts, ts, ts, ts, turn(5))
-    expect_output(print(g1), "|5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/|5- --|")
+    expect_output(print(gs), "|5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/ 5/|5- --|")
 
     g_all <- game(
       turn(1, 2), turn(2, 3), turn(3, 4), turn(4, 5), turn(3, 6),
       turn(2, 7), turn(1, 8), turn(0, 9), turn(9, 1), turn(10), turn(1)
     )
-    expect_output(print(g1), "|12 23 34 45 56 67 78 89 9/ X |1- --|")
+    expect_output(print(g_all), "|12 23 34 45 56 67 78 89 9/ X |1- --|")
 
   }
 )
+
+test_that("Printing a game show the results", {
+  gs <- game(ts, ts, ts, ts, ts, ts, ts, ts, ts, ts, turn(5))
+  expect_output(print(gs), "Game score: 150")
+
+  gx <- game(tx, tx, tx, tx, tx, tx, tx, tx, tx, tx, tx, tx)
+  expect_output(print(gx), "Game score: 300 -> Perfect game <-")
+})
