@@ -155,8 +155,16 @@ print.game <- function(x, ...) {
     paste(collapse = " ") %>%
     stringr::str_pad(5, "right")
 
+  rolls_seq <- paste0("|", normal, "|", extra, "|")
+
+  game_score <- eval_game(x)
+  is_perfect <- game_score == 300L
+  show_perfect <- ifelse(is_perfect, " -> Perfect game <-", "")
+  show_score <- paste0("Game score: ", eval_game(x), show_perfect)
+
+  show <- c(rolls_seq, "", show_score)
   cli::cat_rule(glue("Game length: {turns} turns{info}"))
-  cli::cat_boxx(paste0("|", normal, "|", extra, "|"))
+  cli::cat_boxx(show)
 
   invisible(x)
 }
